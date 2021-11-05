@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <title>T-STAR</title>
+
+    <meta charset="UTF-8">
+    <meta property="og:title" content=T-STAR>
+    <meta property="og:description" content="Lee et al. Adversarial Skill Chaining for Long-Horizon Robot Manipulation via Terminal State Regularization">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta property="og:type" content="website">
+    <meta name="viewport" content="width=device-width, initial-scale=1 minimum-scale=1.0">
+
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100, 100i,300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Showdown -->
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
+    <script src="js/figure-extension.js"></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!-- WAVE -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <link rel="stylesheet" href="theme.css">
+
+    <script>
+        const classMap = {
+            ul: 'browser-default'
+        }
+
+        const bindings = Object.keys(classMap)
+        .map(key => ({
+            type: 'output',
+            regex: new RegExp(`<${key}(.*)>`, 'g'),
+            replace: `<${key} class="${classMap[key]}" $1>`
+        }));
+
+        const converter = new showdown.Converter({
+            extensions: [bindings, 'figure']
+        });
+        converter.setOption('parseImgDimensions', true);
+        converter.setOption('tables', true);
+        converter.setFlavor('github');
+
+        $("#markdown-body").ready(() => {
+            $.get( "content.md", (data) => {
+                const content_html = converter.makeHtml(data);
+                $("#markdown-body").html(content_html);
+            });
+        });
+
+    </script>
+
+    <body>
+        <!-- Header -->
+        <!-- Wide screen -->
+        <header class="hd-container w3-container hide-narrow content-center">
+            <div class="w3-cell-row" style="width: 90%; margin: auto; max-width: 1600px; margin-top: 80px; margin-bottom: 40px">
+                <div class="w3-container w3-cell w3-cell-middle">
+                    <div class="title">Adversarial Skill Chaining for Long-Horizon Robot </div>
+                    <div class="title">Manipulation via Terminal State Regularization</div>
+                    <!-- Author -->
+                <div class="w3-row-padding">
+                    <div class="authorship-container">
+                        <ul class="horizontal-list">
+                            <li><a href="https://youngwoon.github.io" target="_blank"><i class="far fa-user"></i> Youngwoon Lee<sup>1</sup></a></li>
+                            <li><a href="https://viterbi-web.usc.edu/~limjj/" target="_blank"><i class="far fa-user"></i> Joseph J. Lim<sup>1</sup> </a></li>
+                            <li><a href="http://tensorlab.cms.caltech.edu/users/anima/" target="_blank"><i class="far fa-user"></i> Anima Anandkumar<sup>2,3</sup></a></li>
+                            <li><a href="https://www.cs.utexas.edu/~yukez/" target="_blank"><i class="far fa-user"></i> Yuke Zhu<sup>2,4</sup></a></li>
+                        </ul>
+                        <ul class="horizontal-list">
+                            <li><a href="https://clvrai.com/" target="_blank"><i class="fas fa-university"></i> University of Southern California<sup>1</sup> </a></li>
+                            <li><a href="" target="_blank"><i class="fas fa-university"></i> NVIDIA<sup>2</sup> </a></li>
+                            <li><a href="" target="_blank"><i class="fas fa-university"></i> California Institute of Technology<sup>3</sup> </a></li>
+                            <li><a href="" target="_blank"><i class="fas fa-university"></i> The University of Texas at Austin<sup>4</sup> </a></li>
+                        </ul>
+                    </div>
+                    <!--
+                    <div class="w3-card-4 w3-round-large furniture-grid" style="width: 80%; max-width: 700px">
+                        <img width="100%" height="100%" src="img/teaser.png">
+                    </div>
+                    -->
+
+                    </div>
+                    <div class="excerpt w3-padding-16" style="width: 80%; max-width: 700px; margin: auto;">
+                        Skill chaining is a promising approach for synthesizing complex behaviors by sequentially combining previously learned skills. Yet, a naive composition of skills fails when a policy encounters a starting state never seen during its training. For successful skill chaining, prior approaches attempt to widen the policy's starting state distribution. However, these approaches require larger state distributions to be covered as more policies are sequenced, and thus are limited to short skill sequences. In this paper, we propose to chain multiple policies without excessively large initial state distributions by regularizing the terminal state distributions in an adversarial learning framework. We evaluate our approach on two complex long-horizon manipulation tasks of furniture assembly. Our results have shown that our method establishes the first model-free reinforcement learning algorithm to solve these tasks; whereas prior skill chaining approaches fail.
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Narrow screen -->
+        <header class="hd-container w3-container hide-wide">
+            <div class="w3-row-padding w3-center w3-padding-24">
+                <span class="title">Adversarial Skill Chaining for Long-Horizon Robot <br/> Manipulation via Terminal State Regularization</span>
+            </div>
+            <div class="w3-row-padding">
+                <!-- Author -->
+                <div class="authorship-container">
+                    <ul class="horizontal-list">
+                        <li><a href="https://youngwoon.github.io" target="_blank"><i class="far fa-user"></i> Youngwoon Lee<sup>1</sup></a></li>
+                        <li><a href="https://viterbi-web.usc.edu/~limjj/" target="_blank"><i class="far fa-user"></i> Joseph J. Lim<sup>1</sup> </a></li>
+                        <li><a href="http://tensorlab.cms.caltech.edu/users/anima/" target="_blank"><i class="far fa-user"></i> Anima Anandkumar<sup>2,3</sup></a></li>
+                        <li><a href="https://www.cs.utexas.edu/~yukez/" target="_blank"><i class="far fa-user"></i> Yuke Zhu<sup>2,4</sup></a></li>
+                    </ul>
+                    <ul class="horizontal-list">
+                        <li><a href="https://clvrai.com/" target="_blank"><i class="fas fa-university"></i> University of Southern California<sup>1</sup> </a></li>
+                        <li><a href="" target="_blank"><i class="fas fa-university"></i> NVIDIA<sup>2</sup> </a></li>
+                        <li><a href="" target="_blank"><i class="fas fa-university"></i> California Institute of Technology<sup>3</sup> </a></li>
+                        <li><a href="" target="_blank"><i class="fas fa-university"></i> The University of Texas at Austin<sup>4</sup> </a></li>
+                    </ul>
+                </div>
+
+            </div>
+            <!--
+            <div class="w3-row-padding w3-center w3-padding-16">
+                <div class="w3-card-4 w3-round-large furniture-grid" style="width: 100%; max-width: 800px">
+                        <img width="100%" height="100%" src="video/Thumbnail.gif">
+                </div>
+            </div>
+            -->
+            <div class="w3-row-padding"><hr></div>
+            <div class="w3-row-padding w3-padding-16">
+                <div class="excerpt">
+                    Skill chaining is a promising approach for synthesizing complex behaviors by sequentially combining previously learned skills. Yet, a naive composition of skills fails when a policy encounters a starting state never seen during its training. For successful skill chaining, prior approaches attempt to widen the policy's starting state distribution. However, these approaches require larger state distributions to be covered as more policies are sequenced, and thus are limited to short skill sequences. In this paper, we propose to chain multiple policies without excessively large initial state distributions by regularizing the terminal state distributions in an adversarial learning framework. We evaluate our approach on two complex long-horizon manipulation tasks of furniture assembly. Our results have shown that our method establishes the first model-free reinforcement learning algorithm to solve these tasks; whereas prior skill chaining approaches fail.
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Body -->
+        <div class="main-body">
+            <div class="w3-container">
+                <div class="w3-content" style="max-width:1000px;">
+                    <!-- Links -->
+                    <div class="link-container">
+                        <ul class="horizontal-list">
+                            <li><button class="w3-button waves-effect waves-light w3-card-4 grey lighten-2 w3-round-large"><i class="fas fa-file-alt"></i> <a href="https://openreview.net/forum?id=K5-J-Espnaq" target="_blank"> Paper </a></button></li>
+                            <li><button class="w3-button waves-effect waves-light w3-card-4 grey lighten-2 w3-round-large"><i class="fas fa-code"></i> <a href="https://github.com/clvrai/skill-chaining" target="_blank"> Code </a></button></li>
+                        </ul>
+                    </div>
+                    <!-- Markdown Body -->
+                    <div id="markdown-body"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="w3-center w3-light-grey w3-padding-32 w3-small">
+            <p style="color: grey">
+                This work was initiated when Youngwoon Lee worked at NVIDIA Research as an intern. <br/>
+                This research is also supported by the Annenberg Fellowship from USC and the Google Cloud Research Credits program with the award GCP19980904. <br/>
+                We would like to thank Byron Boots for initial discussion, Jim Fan, De-An Huang, Christopher B. Choy, and NVIDIA AI Algorithms team for their insightful feedback, and the USC CLVR lab members for constructive feedback. <br/>
+                &copy; Copyright 2021, CLVR, USC.
+            </p>
+        </footer>
+
+    </body>
+</html>
