@@ -257,7 +257,8 @@ div#markdown-body p.video-title {
 div#markdown-body figcaption {
     padding-top: 10px;
     text-align: center;
-    font-weight: 500;
+    font-weight: 300;
+    font-style: italic;
     font-size: 0.8em;
 }
 
