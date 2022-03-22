@@ -1,0 +1,6 @@
+[submodule "furniture"]
+	path = furniture
+	url = git@github.com:clvrai/furniture.git
+[submodule "method"]
+	path = method
+	url = git@github.com:youngwoon/robot-learning.git
