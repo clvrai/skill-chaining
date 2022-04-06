@@ -1,0 +1,67 @@
+# Mac OS
+.DS_Store
+*~
+
+# Data / demonstrations
+demos/
+
+# Data /results
+result/
+figures/
+
+# Log
+log*
+wandb
+backup*
+
+# Unity
+binary/
+unity-xml/
+unity-log/
+
+# Mujoco
+MUJOCO_LOG.TXT
+
+# Vim
+.*.s[a-w][a-z]
+Session.vim
+
+## VSCode
+.vscode
+
+# Data
+*.csv
+*.ini
+*.npy
+*.mp4
+*.zip
+*.hdf5
+*screenlog*
+
+# Python
+## Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+## C extensions
+#*.so
+
+## Distribution / packaging
+.Python
+build/
+*.egg-info/
+.installed.cfg
+*.egg
+
+## Virtual environment
+.python-version
+.venv
+venv/
+
+## Rope project settings
+.ropeproject
+
+## Jupyter notebook
+**/*.ipynb
+.ipynb_checkpoints

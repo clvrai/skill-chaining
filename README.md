@@ -5,7 +5,7 @@
 This project is a PyTorch implementation of [Adversarial Skill Chaining for Long-Horizon Robot Manipulation via Terminal State Regularization](https://clvrai.com/skill-chaining), published in CoRL 2021.
 
 
-### Note that Unity rendering for IKEA Furniture Asesmbly Environment is temporally not available due to the deprecated Unity-MuJoCo plugin in the new version of MuJoCo.
+### Note that Unity rendering for IKEA Furniture Assembly Environment is temporally not available due to the deprecated Unity-MuJoCo plugin in the new version of MuJoCo (2.1). It is still working with MuJoCo 2.0.
 
 
 ## Files and Directories
@@ -35,6 +35,7 @@ $ git clone --recursive git@github.com:clvrai/skill-chaining.git
 ```
 
 1. Install mujoco 2.1 and add the following environment variables into `~/.bashrc` or `~/.zshrc`
+Note that the code is compatible with **MuJoCo 2.0**, which supports Unity rendering.
 ```bash
 # download mujoco 2.1
 $ mkdir ~/.mujoco
@@ -76,6 +77,9 @@ $ pip install torch torchvision
 ## Usage
 
 For `chair_ingolf_0650`, simply change `table_lack_0825` to `chair_ingolf_0650` in the commands. For training with gpu, specify the desired gpu number (e.g. `--gpu 0`). To change the random seed, append, e.g., `--seed 0` to the command.
+
+To enable wandb logging, add the following arguments with your wandb entity and project names: `--wandb True --wandb_entity [WANDB ENTITY] --wandb_project [WANDB_PROJECT]`.
+
 
 1. Generate demos
 ```

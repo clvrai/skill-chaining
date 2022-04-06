@@ -135,9 +135,9 @@ def create_skill_chaining_parser():
         add_ps_arguments(parser)
         parser.set_defaults(max_ob_norm_step=0)
 
-    parser.set_defaults(log_root_dir="log_refactor")
-    parser.set_defaults(wandb=True)
-    parser.set_defaults(wandb_project="bimanual")
+    parser.set_defaults(log_root_dir="log")
+    parser.set_defaults(wandb=False)
+    parser.set_defaults(wandb_project=None)
     parser.set_defaults(policy_mlp_dim=[128, 128])
     parser.set_defaults(max_global_step=int(1e8))
 

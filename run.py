@@ -36,8 +36,8 @@ if __name__ == "__main__":
     parser = create_skill_chaining_parser()
 
     # change default values
-    parser.set_defaults(wandb_entity="clvr")
-    parser.set_defaults(wandb_project="skill-chaining")
+    parser.set_defaults(wandb_entity=None)
+    parser.set_defaults(wandb_project=None)
 
     # execute training code
     SkillChainingRun(parser).run()
