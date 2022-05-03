@@ -129,16 +129,16 @@ mpirun -np 16 python -m run --algo ps --furniture_name table_lack_0825 --num_con
 5. Train baselines
 ```
 # BC
-python -m run --algo bc --max_global_step 1000 --furniture_name table_lack_0825 --demo_path demos/table_lack_full/ --record_video False --run_prefix bc --gpu 0
+python -m run --algo bc --max_global_step 1000 --furniture_name table_lack_0825 --demo_path demos/table_lack_full/Sawyer_table_lack_0825 --record_video False --run_prefix bc --gpu 0
 
 # GAIL
-mpirun -np 16 python -m run --algo gail --furniture_name table_lack_0825 --demo_path demos/table_lack_full/ --num_connects 4 --max_episode_steps 800 --max_global_step 200000000 --run_prefix gail --gail_env_reward 0
+mpirun -np 16 python -m run --algo gail --furniture_name table_lack_0825 --demo_path demos/table_lack_full/Sawyer_table_lack_0825 --num_connects 4 --max_episode_steps 800 --max_global_step 200000000 --run_prefix gail --gail_env_reward 0
 
 # GAIL+PPO
-mpirun -np 16 python -m run --algo gail --furniture_name table_lack_0825 --demo_path demos/table_lack_full/ --num_connects 4 --max_episode_steps 800 --max_global_step 200000000 --run_prefix gail_ppo
+mpirun -np 16 python -m run --algo gail --furniture_name table_lack_0825 --demo_path demos/table_lack_full/Sawyer_table_lack_0825 --num_connects 4 --max_episode_steps 800 --max_global_step 200000000 --run_prefix gail_ppo
 
 # PPO
-mpirun -np 16 python -m run --algo ppo --furniture_name table_lack_0825 --demo_path demos/table_lack_full/ --num_connects 4 --max_episode_steps 800 --max_global_step 200000000 --run_prefix ppo
+mpirun -np 16 python -m run --algo ppo --furniture_name table_lack_0825 --num_connects 4 --max_episode_steps 800 --max_global_step 200000000 --run_prefix ppo
 ```
 
 
